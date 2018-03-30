@@ -1,0 +1,13 @@
+.container-fluid {
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+.card-header {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.shadow {
+  box-shadow: 3px 3px lightgray;
+}
