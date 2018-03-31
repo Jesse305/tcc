@@ -45,6 +45,7 @@ class UserController extends Controller
       $validation = Validator::make($dados->all(), [
         'name' => 'required|min:3',
         'cpf' => $valida_cpf,
+        'phone' => 'required|min:14',
         'email' => $valida_email,
       ]);
 
@@ -62,6 +63,7 @@ class UserController extends Controller
       $user = new User([
         'name' => $request->name,
         'cpf' => $request->cpf,
+        'phone' => $request->phone,
         'email' => $request->email,
         'password' => bcrypt($password),
       ]);
@@ -82,6 +84,51 @@ class UserController extends Controller
         ->with('alert', [
           'type' => 'success',
           'text' => 'Usuário cadastrado com sucesso.'
+        ]);
+      }
+
+    }
+
+    public function edicao(User $user)
+    {
+
+      return view('users.edicao',[
+        'user' => $user
+      ]);
+    }
+
+    public function editar(User $user, Request $request)
+    {
+
+      $this->validaForm($request, 2);
+
+      if($user->update($request->all())){
+        return redirect()
+        ->route('users.listar')
+        ->with('alert', [
+          'type' => 'success',
+          'text' => 'Usuário editado com sucesso.'
+        ]);
+      }
+    }
+
+    public function trocarSenha(User $user, Request $request){
+
+      Validator::make($request->all(), [
+        'password' => 'required|min:6|confirmed',
+        'password_confirmation' => 'required|min:6|same:password'
+      ])->validate();
+
+      $password = [
+        'password' => bcrypt($request->password),
+      ];
+
+      if($user->update($password)){
+        return redirect()
+        ->back()
+        ->with('alert', [
+          'type' => 'success',
+          'text' => 'Senha editada com sucesso.'
         ]);
       }
 

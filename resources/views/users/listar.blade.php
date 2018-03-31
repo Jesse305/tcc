@@ -10,6 +10,7 @@
         <tr>
           <th>Nome</th>
           <th>CPF</th>
+          <th>Telefone</th>
           <th>E-mail</th>
           <th>Perfil</th>
           <th>Ações</th>
@@ -20,10 +21,11 @@
           <tr>
             <td>{{ $user->name }}</td>
             <td>{{ $user->cpf }}</td>
+            <td>{{ $user->phone }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->getPerfil->perfil }}</td>
             <td class="text-center">
-              <a href="#" class="btn btn-link" title="editar"> <i class="material-icons text-warning">mode_edit</i> </a>
+              <a href="{{ route('users.edicao', $user) }}" class="btn btn-link" title="editar"> <i class="material-icons text-warning">mode_edit</i> </a>
               <button type="button" class="btn btn-link excluir" title="excluir" data-url="{{ route('users.excluir', $user) }}">
                 <i class="material-icons text-danger">remove_circle</i>
               </button>

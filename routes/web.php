@@ -26,4 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users.listar', 'UserController@listar')->name('users.listar');
 Route::get('/users.cadastro', 'UserController@cadastro')->name('users.cadastro');
 Route::post('/users.cadastrar', 'UserController@cadastrar')->name('users.cadastrar');
+Route::get('/users.edicao/{user}', 'UserController@edicao')->name('users.edicao');
+Route::post('/users.editar/{user}', 'UserController@editar')->name('users.editar');
+Route::post('/users.trocar_senha/{user}', 'UserController@trocarSenha')->name('users.trocar_senha');
 Route::get('/users.excluir/{user}', 'UserController@excluir')->name('users.excluir');

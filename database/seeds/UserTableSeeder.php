@@ -23,6 +23,7 @@ class UserTableSeeder extends Seeder
           'name' => 'Jesse de Oliveira Abreu',
           'cpf' => '000.786.221-07',
           'email' => 'jesse.ti.305@gmail.com',
+          'phone' => '(61) 99407-0720',
           'password' => bcrypt('jes12345'),
           'perfil_id' => 1,
         ];
