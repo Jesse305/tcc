@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Models\Perfil;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'cpf', 'perfil_id'
     ];
 
     /**
@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getPerfil()
+    {
+      return $this->hasOne(Perfil::class, 'id', 'perfil_id');
+    }
+
 }

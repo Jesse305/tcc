@@ -8,27 +8,32 @@
   <div class="card shadow">
     <div class="card-header bg-info">Entrar</div>
     <div class="card-body">
-      <form class="" action="" method="post">
-        <div class="form-group">
-          <label for="cpf">CPF:</label>
-          <input class="form-control cpf" type="text" name="cpf" value="" id="cpf" required>
-          @if (!$errors->has('cpf'))
-              <span class="text-danger">
-                  <strong>{{ $errors->first('cpf') }}</strong>
-              </span>
-          @endif
+      <form class="" action="{{ route('login') }}" method="post">
+        <div class="form-group row">
+          @csrf
+          <label class="col-md-3 text-md-right" for="cpf">CPF:</label>
+          <div class="col-md-9">
+            <input class="form-control cpf" type="text" name="cpf" value="{{ old('cpf') }}" id="cpf" required>
+            @if ($errors->has('cpf'))
+                <span class="text-danger">
+                    <strong>{{ $errors->first('cpf') }}</strong>
+                </span>
+            @endif
+          </div>
         </div>
-        <div class="form-group">
-          <label for="password">Senha:</label>
-          <input class="form-control" type="password" name="password" value="" id="password" maxlength="12" required>
-          @if (!$errors->has('password'))
-              <span class="text-danger">
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-          @endif
+        <div class="form-group row">
+          <label class="col-md-3 text-md-right" for="password">Senha:</label>
+          <div class="col-md-9">
+            <input class="form-control" type="password" name="password" value="" id="password" maxlength="12" required>
+            @if ($errors->has('password'))
+                <span class="text-danger">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
+          </div>
         </div>
         <div class="text-center">
-          <button class="btn btn-info btn-sm" type="submit" name="entrar" id="entrar">Entrar</button>
+          <button class="btn btn-info btn-sm" type="submit" id="entrar">Entrar</button>
         </div>
       </form>
     </div>

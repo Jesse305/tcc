@@ -11,3 +11,39 @@
 .shadow {
   box-shadow: 3px 3px lightgray;
 }
+
+label {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.menu-lateral > ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.panel-menu-lateral{
+  margin-bottom: 5px;
+}
+
+.menu-lateral > ul > li {
+  list-style-type: none;
+}
+
+.menu-lateral > ul > li > a {
+  text-decoration: none;
+}
+.menu-lateral > ul > li > a:hover {
+  color: #17a2b8 !important;
+}
+.btn-menu {
+  background-color: #ADD8E6;
+  color: #FFFFFF;
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.back {
+  margin-left: 15px;
+}
