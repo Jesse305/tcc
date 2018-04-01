@@ -52,7 +52,7 @@
     <!-- fim nav -->
 
     <!-- container -->
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-bottom:60px;">
       <div class="row">
 
         <!-- menu lateral -->

@@ -68,7 +68,7 @@
 @endif
 <div class="text-center">
   <button type="button" class="btn btn-info btn-sm back">Voltar</button>
-  <button class="btn btn-success btn-sm" type="submit" id="salvar">Salvar</button>
+  <button class="btn btn-info btn-sm" type="submit" id="salvar">Salvar</button>
 </div>
 
 @push('script')

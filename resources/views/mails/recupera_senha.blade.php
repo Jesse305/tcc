@@ -18,7 +18,7 @@
 </style>
 <table class="table">
   <tr>
-    <th>Parabéns, você é um novo usuário,  seus dados para login SISCAR</th>
+    <th>Sua senha foi resetada, seus dados para login SISCAR</th>
   </tr>
   <tr>
     <td> <b>Usuário:</b> {{ isset($user) ? $user['name'] : 'erro!' }} </td>

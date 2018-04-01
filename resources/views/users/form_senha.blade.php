@@ -32,7 +32,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Cancelar</button>
-        <button type="submit" form="form_senha" class="btn btn-success btn-sm" id="salvar_senha">Salvar</button>
+        <button type="submit" form="form_senha" class="btn btn-info btn-sm" id="salvar_senha">Salvar</button>
       </div>
 
     </div>

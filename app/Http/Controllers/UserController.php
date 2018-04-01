@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EnvioEmail;
+use App\Mail\EnvioSenha;
 
 class UserController extends Controller
 {
@@ -66,6 +67,7 @@ class UserController extends Controller
         'phone' => $request->phone,
         'email' => $request->email,
         'password' => bcrypt($password),
+        'perfil_id' => $request->perfil_id,
       ]);
 
       $user_send = [
@@ -74,7 +76,7 @@ class UserController extends Controller
         'password' => $password,
       ];
 
-      $send_email = Mail::to($request->email)
+      Mail::to($request->email)
       ->send(new EnvioEmail($user_send));
 
       if($user->save()){
@@ -153,5 +155,38 @@ class UserController extends Controller
           'text' => 'Não é possível excluir o próprio cadastro.'
         ]);
       }
+    }
+
+    public function recuperaSenha(Request $request)
+    {
+
+      Validator::make($request->all(), [
+        'email' => 'required|email|exists:users,email',
+      ])->validate();
+
+      $user = User::where('email', $request->email)
+      ->first();
+
+      $senha = str_random(8);
+
+      $user_send = [
+        'name' => $user->name,
+        'cpf' => $user->cpf,
+        'password' => $senha,
+      ];
+
+      Mail::to($request->email)
+      ->send(new EnvioSenha($user_send));
+
+      if($user->update(['password' => bcrypt($senha)])){
+
+        return redirect()
+        ->back()
+        ->with('alert', [
+          'type' => 'success',
+          'text' => 'Uma nova senha foi enviada para o e-mail '.$request->email,
+        ]);
+      }
+
     }
 }

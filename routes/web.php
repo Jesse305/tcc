@@ -30,3 +30,4 @@ Route::get('/users.edicao/{user}', 'UserController@edicao')->name('users.edicao'
 Route::post('/users.editar/{user}', 'UserController@editar')->name('users.editar');
 Route::post('/users.trocar_senha/{user}', 'UserController@trocarSenha')->name('users.trocar_senha');
 Route::get('/users.excluir/{user}', 'UserController@excluir')->name('users.excluir');
+Route::post('/users.recupera_senha', 'UserController@recuperaSenha')->name('users.recupera_senha');
