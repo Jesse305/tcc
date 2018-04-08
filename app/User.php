@@ -4,6 +4,7 @@ namespace App;
 use App\Models\Perfil;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Veiculo;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,12 @@ class User extends Authenticatable
     public function getPerfil()
     {
       return $this->hasOne(Perfil::class, 'id', 'perfil_id');
+    }
+
+    public function getVeiculos()
+    {
+
+      return $this->hasMany(Veiculo::class);
     }
 
 }

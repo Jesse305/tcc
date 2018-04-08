@@ -25,6 +25,9 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->getPerfil->perfil }}</td>
             <td class="text-center">
+              @if($user->perfil_id == 3)
+                <a href="{{ route('users.veiculos', $user) }}" class="btn btn-link" title='ver veículo(s)'> <i class="material-icons text-primary">directions_car</i> </a>
+              @endif
               <a href="{{ route('users.edicao', $user) }}" class="btn btn-link" title="editar"> <i class="material-icons text-warning">mode_edit</i> </a>
               <button type="button" class="btn btn-link excluir" title="excluir" data-url="{{ route('users.excluir', $user) }}">
                 <i class="material-icons text-danger">remove_circle</i>
@@ -40,9 +43,3 @@
 </div>
 
 @endsection
-
-@push('script')
-<script type="text/javascript">
-
-</script>
-@endpush

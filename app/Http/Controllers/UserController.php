@@ -26,6 +26,14 @@ class UserController extends Controller
       ]);
     }
 
+    public function veiculos(User $user)
+    {
+
+      return view('users.veiculos', [
+        'user' => $user,
+      ]);
+    }
+
     public function cadastro()
     {
 

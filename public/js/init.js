@@ -8,6 +8,7 @@ $(document).ready(function(){
 
   $('.cpf').mask('000.000.000-00');
   $('.telefone').mask('(00) 00000-0000');
+  $('.placa').mask('AAA-0000');
 
   $('.back').click(function(){
     history.back();
@@ -31,4 +32,18 @@ $(document).ready(function(){
     });
   });
 
+  $('.slc_chosen').chosen({no_results_text: "Nenhum resultado para "});
+
 });
+
+function toast(titulo, texto){
+
+  $.toast({
+      heading: titulo,
+      text: texto,
+      icon: 'info',
+      position: 'top-right',
+      loader: false,
+  });
+
+}

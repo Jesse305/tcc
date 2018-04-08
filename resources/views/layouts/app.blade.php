@@ -80,8 +80,8 @@
               </div>
             </div>
             <ul>
-              <li> <a href="#" class="btn btn-sm btn-menu"> Listar </a> </li>
-              <li> <a href="#" class="btn btn-sm btn-menu"> Cadastro </a> </li>
+              <li> <a href="{{ route('veiculos.listar') }}" class="btn btn-sm btn-menu"> Listar </a> </li>
+              <li> <a href="{{ route('veiculos.cadastro') }}" class="btn btn-sm btn-menu"> Cadastro </a> </li>
             </ul>
           </div>
           @endif
