@@ -70,11 +70,3 @@
   <button type="button" class="btn btn-info btn-sm back">Voltar</button>
   <button class="btn btn-info btn-sm" type="submit" id="salvar">Salvar</button>
 </div>
-
-@push('script')
-<script type="text/javascript">
-  $('#salvar').click(function(){
-    $(this).attr('disabled', true);
-  });
-</script>
-@endpush

@@ -39,10 +39,16 @@
   </div>
 </div>
 
-@if($errors->has('password') || $errors->has('password_confirmation'))
-  @push("script")
+@push('script')
   <script type="text/javascript">
-    $('#open_modal').click();
+    @if($errors->has('password') || $errors->has('password_confirmation'))
+      $('#open_modal').click();
+    @endif
+    var form_senha = $('#form_senha');
+    var modal_senha = $('#modal_senha');
+    form_senha.on('submit', function(){
+      modal_senha.hide();
+      carregandoOn();
+    });
   </script>
-  @endpush
-@endif
+@endpush

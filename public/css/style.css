@@ -46,3 +46,18 @@ label {
 .back {
   margin-left: 15px;
 }
+
+#loading {
+  position: absolute;
+  margin-left: 40%;
+  z-index: 2;
+}
+
+#over_loading {
+  position: absolute;
+  width: 99%;
+  height: 90%;
+  z-index: 1;
+  opacity:.6;
+	background-color: #FFFFFF;
+}

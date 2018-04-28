@@ -1,3 +1,47 @@
+function toast(titulo, texto){
+
+  $.toast({
+      heading: titulo,
+      text: texto,
+      icon: 'info',
+      position: 'top-right',
+      loader: false,
+  });
+}
+
+function carregandoOn(){
+  $('#loading').show();
+  $('#over_loading').show();
+}
+
+function carregandoOff(){
+  $('#loading').fadeOut('slow');
+  $('#over_loading').fadeOut('slow');
+}
+
+var formulario = $('.formulario');
+formulario.on('submit', function(){
+  carregandoOn();
+});
+
+$('.excluir').click(function(){
+  var url = $(this).data('url');
+  swal({
+    title: 'Tem Certeza?',
+    text: "Deseja realmente excluir o cadastro!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim, excluir!',
+    cancelButtonText: 'Não, cancelar'
+  }).then((result) => {
+    if (result.value) {
+      window.location.href = url;
+    }
+  });
+});
+
 $(document).ready(function(){
 
   $('.dataTable').dataTable({
@@ -14,36 +58,8 @@ $(document).ready(function(){
     history.back();
   });
 
-  $('.excluir').click(function(){
-    var url = $(this).data('url');
-    swal({
-      title: 'Tem Certeza?',
-      text: "Deseja realmente excluir o cadastro!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, excluir!',
-      cancelButtonText: 'Não, cancelar'
-    }).then((result) => {
-      if (result.value) {
-        window.location.href = url;
-      }
-    });
-  });
-
   $('.slc_chosen').chosen({no_results_text: "Nenhum resultado para "});
 
+  carregandoOff();
+
 });
-
-function toast(titulo, texto){
-
-  $.toast({
-      heading: titulo,
-      text: texto,
-      icon: 'info',
-      position: 'top-right',
-      loader: false,
-  });
-
-}

@@ -147,20 +147,30 @@ class UserController extends Controller
     public function excluir(User $user)
     {
 
-      if(Auth::user()->id !== $user->id){
+      if($user->getVeiculos()->count() > 0){
+        return redirect()
+        ->back()
+        ->with('alert', [
+          'type' => 'error',
+          'text' => 'Não é possível excluir usuário com veículo cadastrado.'
+        ]);
+      }
+      else if(Auth::user()->id === $user->id){
+
+        return redirect()
+        ->back()
+        ->with('alert', [
+          'type' => 'error',
+          'text' => 'Não é possível excluir o próprio cadastro.'
+        ]);
+      }
+      else{
         $user->delete();
         return redirect()
         ->back()
         ->with('alert', [
           'type' => 'success',
           'text' => 'Cadastro excluído com sucesso.'
-        ]);
-      }else{
-        return redirect()
-        ->back()
-        ->with('alert', [
-          'type' => 'error',
-          'text' => 'Não é possível excluir o próprio cadastro.'
         ]);
       }
     }

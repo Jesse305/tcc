@@ -53,6 +53,14 @@
 
     <!-- container -->
     <div class="container-fluid" style="margin-bottom:60px;">
+
+      <div class="" id="loading">
+        <img src="{{ asset('img/loading.gif') }}" alt="" width="">
+      </div>
+
+      <div class="" id="over_loading">
+      </div>
+
       <div class="row">
 
         <!-- menu lateral -->

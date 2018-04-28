@@ -54,7 +54,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form class="" action="{{ route('users.recupera_senha') }}" method="post" id="form_senha">
+        <form class="formulario" action="{{ route('users.recupera_senha') }}" method="post" id="form_senha">
           @csrf
           <div class="form-group">
             <input class="form-control" type="text" name="email" value="{{ old('email') }}" placeholder="informe seu e-mail" maxlength="200" required>
@@ -79,10 +79,16 @@
 
 @endsection
 
-@if($errors->has('email'))
-  @push('script')
-    <script type="text/javascript">
-      $('#btn_modal_senha').click();
-    </script>
-  @endpush
-@endif
+@push('script')
+<script type="text/javascript">
+  var btn_modal_senha = $('#btn_modal_senha');
+  var modal_senha = $('#modal_senha');
+  var form_senha = $('#form_senha');
+  @if($errors->has('email'))
+    btn_modal_senha.click();
+  @endif
+  form_senha.on('submit', function(){
+    modal_senha.hide();
+  });
+</script>
+@endpush
