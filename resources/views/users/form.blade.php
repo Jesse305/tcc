@@ -47,14 +47,11 @@
 <div class="form-group row">
   <label class="col-md-3 text-md-right" for="email">Perfil:</label>
   <div class="col-md-9">
-    <label class="radio-inline"><input type="radio" name="perfil_id" value="3" checked {{ old('perfil_id') == 3 || (isset($user) && $user->perfil_id == 3) ? 'checked' : '' }}
-      {{ isset($user) && $user->perfil_id == 1 ? ' disabled' : ''}}
-      > Cliente</label>
-    <label class="radio-inline"><input type="radio" name="perfil_id" value="1" {{ old('perfil_id') == 1 || (isset($user) && $user->perfil_id == 1) ? 'checked disabled' : '' }}
-      > Administrador</label>
-    <label class="radio-inline"><input type="radio" name="perfil_id" value="2" {{ old('perfil_id') == 2 || (isset($user) && $user->perfil_id == 2) ? 'checked' : '' }}
+    <label class="radio-inline"><input type="radio" name="perfil_id" value="2" checked {{ old('perfil_id') == 2 || (isset($user) && $user->perfil_id == 2) ? 'checked' : '' }}
       {{ isset($user) && $user->perfil_id == 1 ? ' disabled' : '' }}
       > Funcionário</label>
+    <label class="radio-inline"><input type="radio" name="perfil_id" value="1" {{ old('perfil_id') == 1 || (isset($user) && $user->perfil_id == 1) ? 'checked disabled' : '' }}
+      > Administrador</label>
   </div>
 </div>
 @endif

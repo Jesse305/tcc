@@ -14,7 +14,6 @@ class UserTableSeeder extends Seeder
         $perfis = [
           ['perfil' => 'Administrador'],
           ['perfil' => 'Funcionário'],
-          ['perfil' => 'Cliente'],
         ];
 
         DB::table('perfis')->insert($perfis);

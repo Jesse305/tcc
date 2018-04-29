@@ -147,15 +147,7 @@ class UserController extends Controller
     public function excluir(User $user)
     {
 
-      if($user->getVeiculos()->count() > 0){
-        return redirect()
-        ->back()
-        ->with('alert', [
-          'type' => 'error',
-          'text' => 'Não é possível excluir usuário com veículo cadastrado.'
-        ]);
-      }
-      else if(Auth::user()->id === $user->id){
+      if(Auth::user()->id === $user->id){
 
         return redirect()
         ->back()
@@ -206,5 +198,33 @@ class UserController extends Controller
         ]);
       }
 
+    }
+
+    public function ativar(User $user)
+    {
+
+      if($user->update(['status' => 1])){
+
+        return redirect()
+        ->back()
+        ->with('alert', [
+          'type' => 'success',
+          'text' => 'Status ativado com sucesso.',
+        ]);
+      }
+    }
+
+    public function desativar(User $user)
+    {
+
+      if($user->update(['status' => 0])){
+
+        return redirect()
+        ->back()
+        ->with('alert', [
+          'type' => 'success',
+          'text' => 'Status desativado com sucesso.',
+        ]);
+      }
     }
 }
