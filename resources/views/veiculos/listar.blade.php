@@ -19,7 +19,7 @@
     <tbody>
       @foreach($veiculos as $veiculo)
         <tr>
-          <td>{{ $veiculo->cliente->name }}</td>
+          <td>{{ $veiculo->cliente->nome }}</td>
           <td>{{ $veiculo->modelo }}</td>
           <td>{{ $veiculo->ano }}</td>
           <td>{{ $veiculo->placa }}</td>

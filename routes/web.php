@@ -23,9 +23,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// rotas logar
+Route::post('/logar', 'LogarController@logar')->name('logar');
+
 // módulo usuário
 Route::get('/users/listar', 'UserController@listar')->name('users.listar');
-Route::get('users/veiculos/{user}', 'UserController@veiculos')->name('users.veiculos');
 Route::get('/users/cadastro', 'UserController@cadastro')->name('users.cadastro');
 Route::post('/users/cadastrar', 'UserController@cadastrar')->name('users.cadastrar');
 Route::get('/users/edicao/{user}', 'UserController@edicao')->name('users.edicao');
@@ -43,3 +45,9 @@ Route::post('/veiculos/cadastrar', 'VeiculoController@cadastrar')->name('veiculo
 Route::get('/veiculos/edicao/{veiculo}', 'VeiculoController@edicao')->name('veiculos.edicao');
 Route::post('/veiculos/editar/{veiculo}', 'VeiculoController@editar')->name('veiculos.editar');
 Route::get('/veiculos/excluir/{veiculo}', 'VeiculoController@excluir')->name('veiculos.excluir');
+
+// módulo cliente
+Route::get('/clientes/listar', 'ClienteController@listar')->name('clientes.listar');
+Route::get('/clientes/cadastro', 'ClienteController@cadastro')->name('clientes.cadastro');
+Route::post('/clientes/cadastrar', 'ClienteController@cadastrar')->name('clientes.cadastrar');
+Route::get('/clientes/excluir/{cliente}', 'ClienteController@excluir')->name('clientes.excluir');

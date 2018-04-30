@@ -64,7 +64,7 @@
       <div class="row">
 
         <!-- menu lateral -->
-        <div class="col-md-2">
+        <div class="@guest col-xs-0  @else col-md-2 @endguest">
         @guest
 
         @else
@@ -84,6 +84,16 @@
 
             <div class="card panel-menu-lateral" >
               <div class="card-header bg-info">
+                Clientes
+              </div>
+            </div>
+            <ul>
+              <li> <a href="{{ route('clientes.listar') }}" class="btn btn-sm btn-menu"> Listar </a> </li>
+              <li> <a href="{{ route('clientes.cadastro') }}" class="btn btn-sm btn-menu"> Cadastro </a> </li>
+            </ul>
+
+            <div class="card panel-menu-lateral" >
+              <div class="card-header bg-info">
                 VEÍCULOS
               </div>
             </div>
@@ -98,7 +108,7 @@
         <!-- fim menu lateral -->
 
         <!-- content -->
-        <div class="col-md-10">
+        <div class="@guest col-md-12  @else col-md-10 @endguest">
           @yield('content')
         </div>
         <!-- fim content -->

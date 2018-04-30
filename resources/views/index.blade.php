@@ -4,11 +4,11 @@
 
 @section('content')
 
-<div class="col-md-4 " style="margin-left: 18%;margin-top:10%;">
+<div class="col-md-4 mx-auto" style="margin-top:100px;">
   <div class="card shadow">
     <div class="card-header bg-info">Entrar</div>
     <div class="card-body">
-      <form class="" action="{{ route('login') }}" method="post" id="form_entrar">
+      <form class="" action="{{ route('logar') }}" method="post" id="form_entrar">
         <div class="form-group row">
           @csrf
           <label class="col-md-3 text-md-right" for="cpf">CPF:</label>

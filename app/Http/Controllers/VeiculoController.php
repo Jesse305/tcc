@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Models\Veiculo;
+use App\Models\Cliente;
 
 class VeiculoController extends Controller
 {
@@ -27,8 +28,7 @@ class VeiculoController extends Controller
 
     public function cadastro()
     {
-      $lista_clientes = User::where('perfil_id', 3)
-      ->orderBy('name')
+      $lista_clientes = Cliente::orderBy('nome')
       ->get();
 
       return view('veiculos.cadastro', [
@@ -50,7 +50,7 @@ class VeiculoController extends Controller
           'ano' => 'required|min:4|integer',
           'cor' => 'required|min:4',
           'placa' => $placa,
-          'user_id' => 'required|integer',
+          'cliente_id' => 'required|integer',
         ],[
           'placa.min' => 'Informe uma placa válida.'
         ]);
@@ -79,8 +79,7 @@ class VeiculoController extends Controller
     public function edicao(Veiculo $veiculo)
     {
 
-      $lista_clientes = User::where('perfil_id', 3)
-      ->orderBy('name')
+      $lista_clientes = Cliente::orderBy('nome')
       ->get();
 
       return view('veiculos.edicao', [

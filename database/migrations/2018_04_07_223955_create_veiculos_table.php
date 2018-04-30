@@ -19,12 +19,12 @@ class CreateVeiculosTable extends Migration
             $table->string('ano');
             $table->string('placa')->unique();
             $table->string('cor');
-            $table->integer('user_id');
+            $table->integer('cliente_id');
             $table->timestamps();
 
-            $table->foreign('user_id')
+            $table->foreign('cliente_id')
             ->references('id')
-            ->on('users');
+            ->on('clientes');
         });
     }
 

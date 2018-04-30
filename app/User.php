@@ -32,11 +32,5 @@ class User extends Authenticatable
     {
       return $this->hasOne(Perfil::class, 'id', 'perfil_id');
     }
-
-    public function getVeiculos()
-    {
-
-      return $this->hasMany(Veiculo::class);
-    }
-
+    
 }

@@ -52,13 +52,13 @@
 </div>
 
 <div class="form-group row">
-  <label class="col-md-3 text-md-right" for="user_id">Dono:</label>
+  <label class="col-md-3 text-md-right" for="cliente_id">Dono:</label>
   <div class="col-md-9">
-    <select class="form-control slc_chosen" name="user_id" id="user_id" required>
+    <select class="form-control slc_chosen" name="cliente_id" id="cliente_id" required>
       <option value="">Selecione</option>
       @if(isset($lista_clientes))
         @foreach($lista_clientes as $cliente)
-          <option value="{{ $cliente->id }}" {{ (old('user_id') == $cliente->id || (isset($veiculo) && $veiculo->cliente->id == $cliente->id)) ? 'selected' : '' }} > {{ $cliente->name }} </option>
+          <option value="{{ $cliente->id }}" {{ (old('cliente_id') == $cliente->id || (isset($veiculo) && $veiculo->cliente->id == $cliente->id)) ? 'selected' : '' }} > {{ $cliente->nome }} </option>
         @endforeach
       @endif
     </select>
