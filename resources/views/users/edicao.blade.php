@@ -3,7 +3,7 @@
 @section('title', 'EDIÇÃO DE CADASTRO')
 
 @section('content')
-<div class="col-md-6 " style="margin-left: 10%;">
+<div class="col-md-6 mx-auto">
   <div class="card shadow">
     <div class="card-header bg-info">Edição</div>
     <div class="card-body">

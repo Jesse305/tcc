@@ -3,7 +3,7 @@
 @section('title', 'CADASTRO DE VEÍCULOS')
 
 @section('content')
-<div class="col-md-6 " style="margin-left: 10%;">
+<div class="col-md-6 mx-auto">
   <div class="card shadow">
     <div class="card-header bg-info">Cadastrar</div>
     <div class="card-body">
