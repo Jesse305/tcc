@@ -79,7 +79,7 @@
             </div>
             <ul>
               <li> <a href="{{ route('users.listar') }}" class="btn btn-sm btn-menu"> Listar </a> </li>
-              <li> <a href="{{ route('users.cadastro') }}" class="btn btn-sm btn-menu"> Cadastro </a> </li>
+              <li> <a href="{{ route('users.cadastro') }}" class="btn btn-sm btn-menu">Novo Usuário </a> </li>
             </ul>
 
             <div class="card panel-menu-lateral" >
@@ -89,7 +89,7 @@
             </div>
             <ul>
               <li> <a href="{{ route('clientes.listar') }}" class="btn btn-sm btn-menu"> Listar </a> </li>
-              <li> <a href="{{ route('clientes.cadastro') }}" class="btn btn-sm btn-menu"> Cadastro </a> </li>
+              <li> <a href="{{ route('clientes.cadastro') }}" class="btn btn-sm btn-menu">Novo Cliente </a> </li>
             </ul>
 
             <div class="card panel-menu-lateral" >
@@ -99,7 +99,7 @@
             </div>
             <ul>
               <li> <a href="{{ route('veiculos.listar') }}" class="btn btn-sm btn-menu"> Listar </a> </li>
-              <li> <a href="{{ route('veiculos.cadastro') }}" class="btn btn-sm btn-menu"> Cadastro </a> </li>
+              <li> <a href="{{ route('veiculos.cadastro') }}" class="btn btn-sm btn-menu">Novo Veículo </a> </li>
             </ul>
           </div>
           @endif

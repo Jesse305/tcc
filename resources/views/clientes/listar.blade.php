@@ -11,7 +11,7 @@
         <th>CPF</th>
         <th>Telefone</th>
         <th>E-mail</th>
-        <th>Ações</th>
+        <th width="150">Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +25,7 @@
           @if($cliente->isVeiculo())
           <a href="#" class="btn btn-link" title="veiculos"> <i class="material-icons text-primary">directions_car</i> </a>
           @endif
-          <a href="#" class="btn bt-link" title="editar"> <i class="material-icons text-warning"> mode_edit </i> </a>
+          <a href="{{ route('clientes.edicao', $cliente) }}" class="btn bt-link" title="editar"> <i class="material-icons text-warning"> mode_edit </i> </a>
           @if(Auth::user()->perfil_id == 1)
           <button type="button" class="btn btn-link excluir" title="excluir" data-url="{{ route('clientes.excluir', $cliente) }}"> <i class="material-icons text-danger">remove_circle</i> </button>
           @endif

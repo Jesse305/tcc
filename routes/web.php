@@ -51,3 +51,5 @@ Route::get('/clientes/listar', 'ClienteController@listar')->name('clientes.lista
 Route::get('/clientes/cadastro', 'ClienteController@cadastro')->name('clientes.cadastro');
 Route::post('/clientes/cadastrar', 'ClienteController@cadastrar')->name('clientes.cadastrar');
 Route::get('/clientes/excluir/{cliente}', 'ClienteController@excluir')->name('clientes.excluir');
+Route::get('/clientes/edicao/{cliente}', 'ClienteController@edicao')->name('clientes.edicao');
+Route::post('/clientes/editar/{cliente}', 'ClienteController@editar')->name('clientes.editar');

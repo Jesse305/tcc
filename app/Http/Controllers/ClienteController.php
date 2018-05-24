@@ -74,4 +74,68 @@ class ClienteController extends Controller
         ]);
       }
     }
+
+    public function edicao(Cliente $cliente)
+    {
+
+      return view('clientes.edicao', [
+        'cliente' => $cliente,
+      ]);
+    }
+
+    public function validaCpf(Cliente $cliente, string $cpf)
+    {
+
+      return Cliente::where('id', '<>', $cliente->id)
+      ->where('cpf', $cpf)
+      ->count();
+    }
+
+    public function validaEmail(Cliente $cliente, string $email)
+    {
+
+      return Cliente::where('id', '<>', $cliente->id)
+      ->where('email', $email)
+      ->count();
+    }
+
+    public function editar(Cliente $cliente, Request $request)
+    {
+
+      $request->validate([
+        'nome' => 'required|min:3',
+        'cpf' => 'required|min:14',
+        'telefone' => 'required|min:14',
+        'email' => 'email',
+      ]);
+
+      $alert = '';
+
+      if($this->validaCpf($cliente, $request->cpf)){
+        $alert = 'O cpf já foi utilizado em outro cadastro';
+      }
+
+      if($this->validaEmail($cliente, $request->email)){
+        $alert = 'O e-mail já foi utilizado em outro cadastro';
+      }
+
+      if($alert != ''){
+        return redirect()
+        ->back()
+        ->withInput()
+        ->with('alert', [
+          'type' => 'info',
+          'text' => $alert
+        ]);
+      }
+
+      if($cliente->update($request->all())){
+        return redirect()
+        ->route('clientes.listar')
+        ->with('alert', [
+          'type' => 'success',
+          'text' => 'Cadastro alterado com sucesso',
+        ]);
+      }
+    }
 }
